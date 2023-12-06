@@ -1,6 +1,6 @@
 #
 # Ubuntu Desktop Kasm image
-# Version 23.12
+# Version 23.12.1
 # Made by FreedTapestry21
 #
 
@@ -25,10 +25,13 @@ RUN echo ubuntu > /etc/hostname
 
 # Install updates, programs and shortcuts
 RUN apt update && apt upgrade -y
-RUN apt install -y sudo nano vim htop firefox gimp audacity krita kdenlive nodejs npm vlc obs-studio mousepad
+RUN apt install -y sudo nano vim wget curl htop firefox gimp audacity krita kdenlive nodejs npm vlc obs-studio mousepad filezilla
 RUN apt remove -y kdeconnect snap snapd
 RUN apt autoremove -y
 RUN cp /usr/share/applications/firefox.desktop /usr/share/applications/audacity.desktop /usr/share/applications/vlc.desktop /usr/share/applications/gimp.desktop /usr/share/applications/org.kde.krita.desktop /usr/share/applications/org.kde.kdenlive.desktop /usr/share/applications/org.xfce.mousepad.desktop $HOME/Desktop
+
+# Install Monocraft font
+RUN wget -O /usr/share/fonts/Monocraft.ttf https://github.com/IdreesInc/Monocraft/releases/download/v3.0/Monocraft.ttf
 
 
 ######### End Customizations ###########
